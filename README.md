@@ -4,10 +4,10 @@ Scoreboard webapp for Beeline's activities in Gorky park on 5th July 2014. Built
 
 ## Development
 
-Notes on installation frontend development environment are [here](/olegvg/beeline-scoreboard/src/master/docs/frontend_dev.md).
+Notes on installation frontend development environment are [here](docs/frontend_dev.md).
 
 ## Deployment
 
-Instructions for backend are [here](/olegvg/beeline-scoreboard/src/master/docs/backend_deployment.md).
+Instructions for backend are [here](docs/backend_deployment.md).
 
-Instructions for frontend are [here](/olegvg/beeline-scoreboard/src/master/docs/frontend_deployment.md).
+Instructions for frontend are [here](docs/frontend_deployment.md).
