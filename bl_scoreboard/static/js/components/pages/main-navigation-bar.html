@@ -1,0 +1,34 @@
+<nav class="navbar navbar-default beeline-color-bg" role="navigation" ng-cloak>
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navigation-bar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="#" class="navbar-brand"><img style="margin-bottom: 5px;" src="./img/beeline_logo.png"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navigation-bar-collapse">
+      <form class="navbar-form navbar-left validated-form" novalidate name="promoSearchForm" role="search">
+        <div class="form-group" ng-class="promoSearchForm.promo.$invalid && promoSearchForm.promo.$dirty ? 'has-error' : 'has-success'">
+          <input class="form-control" type="text" name="promo" pattern="[0-9]*" required ng-pattern="/[0-9]{4}/" ng-model="searchPromo" placeholder="Введите код или телефон">
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-default" ng-click="searchClick()" ng-disabled="promoSearchForm.$invalid">Найти участника</button>
+        </div>
+        <div class="form-group">
+          <button type="button" class="btn btn-default" ng-click="newGamerClick()">Регистрация</button>
+        </div>
+      </form>
+      <form class="navbar-form navbar-right">
+        <div class="form-group">
+          <button type="button" class="btn btn-default" ng-click="showScoreboard()">Рекорды</button>
+        </div>
+        <div class="form-group">
+          <button type="button" class="btn btn-default" ng-click="showGivePrize()">Призы</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</nav>

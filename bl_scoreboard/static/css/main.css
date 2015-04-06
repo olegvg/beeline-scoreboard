@@ -1,0 +1,21 @@
+/* get rid of search form in Select2 jQuery widget. To use, place "dropdownCssClass : 'no-search'" into options */
+.no-search .select2-search {
+    display:none
+}
+
+/* CSS part of fix for iOS bug */
+/* See http://stackoverflow.com/questions/15199072/ios-input-focused-inside-fixed-parent-stops-position-update-of-fixed-elements */
+/*.fixfixed .navbar-fixed-top {*/
+  /*position: absolute;*/
+/*}*/
+
+/* gets 'Open Sans' or 'Beeline' font from local server */
+@font-face {
+    font-style: normal;
+    /*font-family: 'Open Sans';*/
+    /*font-weight: 400;*/
+    font-family: 'Beeline';
+    font-weight: 400;
+    /*src: local('Open Sans'), local('OpenSans'), url(../fonts/opensans-400-latin-cyrillic.woff) format('woff');*/
+    src: local('Beeline'), local('Beeline'), url(../fonts/ofics_b.woff) format('woff');
+}

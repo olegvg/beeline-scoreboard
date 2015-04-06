@@ -1,0 +1,15 @@
+Flask==0.10.1
+Flask-RESTful==0.2.12
+Flask-SQLAlchemy==1.0
+Jinja2==2.7.3
+MarkupSafe==0.23
+SQLAlchemy==0.9.8
+Werkzeug==0.9.6
+aniso8601==0.84
+itsdangerous==0.24
+psycopg2==2.5.4
+pytz==2014.9
+requests==2.4.3
+six==1.8.0
+uWSGI==2.0.8
+wsgiref==0.1.2

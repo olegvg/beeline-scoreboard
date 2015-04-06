@@ -1,0 +1,52 @@
+{
+  "На скоростях 4G": {
+    "showParticip": false,
+    "showWins": false,
+    "showPhotos": true,
+    "showTimes": false,
+    "showPins": false,
+    "participate": 0,
+    "score": 0,
+    "photos": 1
+  },
+  "Свобода движения с 4G": {
+    "showParticip": true,
+    "showWins": true,
+    "showPhotos": false,
+    "showTimes": false,
+    "showPins": false,
+    "participate": 1,
+    "score": 2,
+    "photos": 0
+  },
+  "Велосипед-квартет": {
+    "showParticip": false,
+    "showWins": false,
+    "showPhotos": true,
+    "showTimes": false,
+    "showPins": false,
+    "participate": 0,
+    "score": 0,
+    "photos": 1
+  },
+  "I love 4G": {
+    "showParticip": false,
+    "showWins": false,
+    "showPhotos": true,
+    "showTimes": false,
+    "showPins": false,
+    "participate": 0,
+    "score": 0,
+    "photos": 1
+  },
+  "Пинг-понг": {
+    "showParticip": true,
+    "showWins": true,
+    "showPhotos": false,
+    "showTimes": false,
+    "showPins": false,
+    "participate": 1,
+    "score": 2,
+    "photos": 0
+  }
+}

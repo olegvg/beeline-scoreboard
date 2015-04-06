@@ -1,0 +1,6 @@
+{
+    "directory": "bl_scoreboard/static/lib",
+    "scripts": {
+        "postinstall": "bower-requirejs -c bl_scoreboard/static/js/main.js"
+    }
+}

@@ -1,0 +1,148 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-offset-2">
+      <div class="page-header">
+        <h1>Игрок</h1>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <form class="form-horizontal validated-form" novalidate name="userDetailsForm" role="form">
+      <div class="form-group" ng-class="userDetailsForm.phone.$valid ? 'has-success' : 'has-warning'" ng-hide="detailsMode == 'edit'">
+        <label for="telInput" class="col-sm-4 control-label">Телефон</label>
+        <div class="col-sm-6">
+          <input type="tel" class="form-control" id="telInput" placeholder="9........." ng-model="gamer.phone" name="phone" required ng-pattern="/[0-9]{6,}/">
+        </div>
+      </div>
+      <div class="form-group" ng-class="userDetailsForm.name.$valid ? 'has-success' : 'has-warning'">
+        <label for="nameInput" class="col-sm-4 control-label">Имя</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="nameInput" placeholder="Имя" ng-model="gamer.name" ng-disabled="detailsMode == 'edit'" name="name" required>
+        </div>
+      </div>
+      <div class="form-group" ng-class="userDetailsForm.surname.$valid ? 'has-success' : 'has-warning'">
+        <label for="surnameInput" class="col-sm-4 control-label">Фамилия</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="telInput" placeholder="Фамилия" ng-model="gamer.surname" ng-disabled="detailsMode == 'edit'" name="surname" required>
+        </div>
+      </div>
+      <div class="form-group has-success" ng-show="detailsMode == 'edit'">
+        <label for="promoCodeInput" class="col-sm-4 control-label">Промо-код</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="promoCodeInput" ng-model="gamer.promo_code" disabled name="promo_code">
+        </div>
+      </div>
+      <!-- <div class="form-group" ng-class="userDetailsForm.age.$valid ? 'has-success' : 'has-warning'" ng-hide="detailsMode == 'edit'">
+        <label for="ageInput" class="col-sm-4 control-label">Возраст</label>
+        <div class="col-sm-6">
+          <input type="tel" class="form-control" id="ageInput" placeholder="Возраст" ng-model="gamer.age" name="age" required pattern="[0-9]*" ng-pattern="/[0-9]+/">
+        </div>
+      </div> -->
+      <div class="form-group" ng-show="detailsMode == 'new'">
+        <div class="col-sm-offset-4 col-sm-7">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" ng-model="personalAgreement"> Согласен на обработку персональных данных
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-group" ng-hide="detailsMode == 'new'">
+        <label for="nameInput" class="col-sm-4 control-label">Игра</label>
+        <div class="col-sm-6">
+          <select class="form-control" id="nameInput"
+                  ui-select2="{ minimumResultsForSearch: -1, allowClear: false }"
+                  ng-model="gamer.game_name"
+                  ng-change="gameSelectClick()">
+            <option value=""></option>
+            <option ng-repeat="game in gameNames" value="{{ game }}">{{ game }}</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group" ng-show="showParticip">
+        <div class="col-sm-offset-4 col-sm-6">
+          <button type="button" ng-show="gamer.participate" disabled="{{ gamer.participate }}" ng-click="participateClick()" class="btn btn-default">Участвовал в игре &mdash; Да <span class="glyphicon glyphicon-thumbs-up"></span></button>
+          <button type="button" ng-hide="gamer.participate" ng-click="participateClick()" class="btn btn-default">Участвовал в игре &mdash; Нет <span class="glyphicon glyphicon-thumbs-down"></span></button>
+        </div>
+      </div>
+      <div class="form-group" ng-show="showWins">
+        <div class="col-sm-offset-4 col-sm-6">
+          <button type="button" ng-show="gamer.score" disabled="{{ gamer.score }}" ng-click="winClick()" class="btn btn-default">Победил в игре &mdash; Да <span class="glyphicon glyphicon-thumbs-up"></span></button>
+          <button type="button" ng-hide="gamer.score" ng-click="winClick()" class="btn btn-default">Победил в игре &mdash; Нет <span class="glyphicon glyphicon-thumbs-down"></span></button>
+        </div>
+      </div>
+      <div class="form-group" ng-show="showPhotos">
+        <div class="col-sm-offset-4 col-sm-6">
+          <button type="button" ng-show="gamer.photos" disabled="{{ gamer.photos }}" ng-click="photoClick()" class="btn btn-default">Разместил фотку &mdash; Да <span class="glyphicon glyphicon-thumbs-up"></span></button>
+          <button type="button" ng-hide="gamer.photos" ng-click="photoClick()" class="btn btn-default">Разместил фотку &mdash; Нет <span class="glyphicon glyphicon-thumbs-down"></span></button>
+        </div>
+      </div>
+      <div class="form-group" ng-show="showPins">
+        <label for="besstimeInput" class="col-sm-4 control-label">Наибольшие баллы</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" placeholder="Баллы" ng-model="gamer.most_pins" name="most_pins">
+        </div>
+      </div>
+      <div class="form-group" ng-show="showTimes">
+        <label for="besstimeInput" class="col-sm-4 control-label">Лучшее время</label>
+        <div class="col-sm-6">
+          <input type="text" pattern="[0-9]*" masked-input="99:99:99" class="form-control" placeholder="Минуты : Секунды : Мгновения" ng-model="gamer.best_time" name="best_time">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-4 col-sm-4">
+          <button type="submit" class="btn btn-default" ng-click="submitClick()" ng-disabled="userDetailsForm.$invalid || (!personalAgreement && detailsMode == 'new')">Сохранить</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="modal fade" modal-dialog-to-scope-as="alertPrizeGivenModal" role="dialog" aria-labelledby="alertPrizeGivenModal" aria-hidden="true" data-keyboard="false">
+  <div class="modal-dialog" data-toggle="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="alertPrizeGivenModal">Приз уже выдан</h4>
+      </div>
+      <div class="modal-body">
+        <p>Игрок уже получил приз.<br>Повторное участие в игре запрещено!</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" ng-click="leaveGamerDetailsClick()">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" modal-dialog-to-scope-as="gamerAlreadyRegisteredModal" role="dialog" aria-labelledby="gamerAlreadyRegisteredModal" aria-hidden="true" data-keyboard="false">
+  <div class="modal-dialog" data-toggle="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="gamerAlreadyRegisteredModal">Игрок уже зарегистрирован</h4>
+      </div>
+      <div class="modal-body">
+        <p>Игрок с таким номером телефона уже зарегистрирован!<br>
+          Используйте поиск на верхней панели, чтобы найти игрока</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" modal-dialog-to-scope-as="gamersPromoCodeModal" role="dialog" aria-labelledby="gamersPromoCodeModal" aria-hidden="true" data-keyboard="false">
+  <div class="modal-dialog" data-toggle="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="gamersPromoCodeModal">Промо-код игрока</h4>
+      </div>
+      <div class="modal-body">
+        <h2>{{ promoCode }}</h2>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" ng-click="leaveGamersPromoCodeModalClick()">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>

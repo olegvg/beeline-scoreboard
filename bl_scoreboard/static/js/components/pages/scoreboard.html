@@ -1,0 +1,104 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-offset-2">
+      <ul class="nav nav-pills">
+        <li ng-class="currentScoreboard == 'main' ? 'active': ''"><a href="" ng-click="changeScoreboard('main')">Рекорды</a></li>
+<!--        <li ng-class="currentScoreboard == 'dance' ? 'active': ''"><a href="" ng-click="changeScoreboard('dance')">Рекорды "Учись танцевать, быстро!"</a></li>
+        <li ng-class="currentScoreboard == 'autosim' ? 'active': ''"><a href="" ng-click="changeScoreboard('autosim')">Рекорды "Авто-симулятор"</a></li> -->
+      </ul>
+    </div>
+  </div>
+  <div ng-show="currentScoreboard == 'main'">
+    <div class="row">
+      <div class="col-sm-offset-2">
+        <div class="page-header">
+          <h1>Рекорды</h1>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-offset-2">
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <tr>
+              <th>Место</th>
+              <th>Промо-код</th>
+              <th>Имя</th>
+              <th>Фамилия</th>
+              <th>Поинты</th>
+            </tr>
+            <tr ng-repeat="score in scoreBoardMain">
+              <td>{{ $index+1 }}</td>
+              <td><a href="#gamer/{{score.promo_code}}">{{score.promo_code}}</a></td>
+              <td>{{score.name}}</td>
+              <td>{{score.surname}}</td>
+              <td>{{score.score}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div ng-show="currentScoreboard == 'dance'">
+    <div class="row">
+      <div class="col-sm-offset-2">
+        <div class="page-header">
+          <h1>Рекорды</h1>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-offset-2">
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <tr>
+              <th>Место</th>
+              <th>Промо-код</th>
+              <th>Имя</th>
+              <th>Фамилия</th>
+              <th>Наибольшие баллы</th>
+            </tr>
+            <tr ng-repeat="score in scoreBoardDance">
+              <td>{{ $index+1 }}</td>
+              <td><a href="#gamer/{{score.promo_code}}">{{score.promo_code}}</a></td>
+              <td>{{score.name}}</td>
+              <td>{{score.surname}}</td>
+              <td>{{ score.most_pins ? score.most_pins : '&mdash;' }}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div ng-show="currentScoreboard == 'autosim'">
+    <div class="row">
+      <div class="col-sm-offset-2">
+        <div class="page-header">
+          <h1>Рекорды</h1>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-offset-2">
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <tr>
+              <th>Место</th>
+              <th>Промо-код</th>
+              <th>Имя</th>
+              <th>Фамилия</th>
+              <th>Лучшее время</th>
+            </tr>
+            <tr ng-repeat="score in scoreBoardAutosim">
+              <td>{{ $index+1 }}</td>
+              <td><a href="#gamer/{{score.promo_code}}">{{score.promo_code}}</a></td>
+              <td>{{score.name}}</td>
+              <td>{{score.surname}}</td>
+              <td>{{score.best_time ? score.best_time : '&mdash;' }}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

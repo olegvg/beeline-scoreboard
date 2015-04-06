@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link id="favicon" rel="shortcut icon" href="favicon.ico" />
+    <title>Билайн</title>
+    <style type="text/css">
+      [ng-cloak] {
+        display: none;
+      }
+      [ng-cloak].splash {
+        display: block !important;
+      }
+      .splash {
+        display: none;
+        color: black;
+        font-family: sans-serif;
+      }
+      .splash h2 {
+        font-size: 2.1em;
+        font-weight: 500;
+      }
+    </style>
+    <link rel="stylesheet" type="text/css" media="all" href="css/main.css">
+
+    <!-- Open Sans font -->
+    <!--<link href='http://fonts.googleapis.com/css?family=Open+Sans:400&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>-->
+</head>
+<body>
+    <div class="splash" ng-cloak><h2>Приложение загружается...</h2></div>
+    <nav-bar></nav-bar>
+    <div ng-view></div>
+    <script src="lib/requirejs/require.js" data-main="js/main"></script>
+</body>
+</html>

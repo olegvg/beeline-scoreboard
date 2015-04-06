@@ -1,0 +1,34 @@
+{
+  "name": "bl-scoreboard",
+  "version": "0.0.1",
+  "authors": [
+    "Oleg Gaidukov <ogaidukov@gmail.com>"
+  ],
+  "description": "Scoreboard with registration via SMS feature. Beeline project.",
+  "dependencies": {
+    "angular": "~1.2",
+    "angular-route": "~1.2",
+    "jquery": "~1.9",
+    "bootstrap": "~3.2",
+    "angular-bootstrap": "~0.11",
+    "requirejs": "~2.1",
+    "require-css": "~0.1",
+    "require-less": "~0.1",
+    "angular-ui-select2": "~0.0.5",
+    "select2": "~3.4",
+    "jquery-maskedinput": "~1.3"
+  },
+  "moduleType": [
+    "amd"
+  ],
+  "license": "Private",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "bl_scoreboard/static/lib",
+    "test",
+    "tests"
+  ]
+}
